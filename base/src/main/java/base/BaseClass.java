@@ -42,7 +42,7 @@ public class BaseClass {
 
     public void setUp(String browserName) {
         driver = getLocalDriver(browserName);
-        webDriverWait = new WebDriverWait(driver, 7);
+        webDriverWait = new WebDriverWait(driver, 20);
         dataReader = new DataReader();
 
         driver.manage().deleteAllCookies();
@@ -185,5 +185,18 @@ public class BaseClass {
         }
     }
 
+    public boolean isElementPresent(WebElement element) {
+        boolean flag = false;
+
+        try {
+            if (element.isDisplayed()){
+                flag = true;
+            }
+        } catch (ElementNotVisibleException e) {
+            System.out.println("UNABLE TO LOCATE ELEMENT");
+        }
+
+        return flag;
+    }
 
 }
