@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/termsOfUse.feature"},
+        features = {"src/test/resources/interestBaseAds.feature"},
         glue = {"step_definitions"},
 //    tags = "@Deals",
         monochrome = true,

@@ -42,7 +42,7 @@ public class ESPNTermsOfUseStepsDefinitions extends BaseClass {
 
     @Then("a PDF file of the terms of use will be downloaded")
     public void downloadPDF() {
-        System.out.println("Downloaded");
+        Assert.assertTrue(isFileDownloaded("Disney US English Terms of Use"));
 
     }
 }

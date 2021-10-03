@@ -17,7 +17,7 @@ public class SharedStepsUI extends BaseClass {
 
     @Before
     public void driverSetUp() {
-        String browser = "chrome-options";
+        String browser = "chrome";
         setUp(browser);
         openESPNApplication();
     }

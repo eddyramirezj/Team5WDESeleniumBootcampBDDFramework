@@ -39,6 +39,9 @@ public class Homepage extends BaseClass {
     @FindBy (css="div.PageFooter__Footer a[href='https://disneytermsofuse.com/english/']")
     public WebElement footerTermsOfServiceLink;
 
+    @FindBy (css="div.PageFooter__Legal a[href='http://preferences-mgr.truste.com/?type=espn&affiliateId=148']")
+    public WebElement interestBaseAdsPageLink;
+
     public HomeWatch navigateToHomeWatch() {
         waitForElementToBeClickable(watchDropMenuButton);
         clickOnElement(watchDropMenuButton);
@@ -82,6 +85,12 @@ public class Homepage extends BaseClass {
 
     private String getByLocatorChannelsOnScoreboard() {
         return "//div[@class='scores-carousel']//div[@class='cscore_channels icon-font-before icon-play-arrow-solid-before']/span";
+    }
+
+    public InterestBaseAdsPage navigateToInterestBaseAdsPage() {
+        waitForElementToBeClickable(interestBaseAdsPageLink);
+        clickOnElement(interestBaseAdsPageLink);
+        return new InterestBaseAdsPage();
     }
 
 }

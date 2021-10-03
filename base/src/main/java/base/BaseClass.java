@@ -210,4 +210,24 @@ public class BaseClass {
         return flag;
     }
 
+    public static Boolean isFileDownloaded(String fileName) {
+        boolean flag = false;
+        String dirPath = "C:" + File.separator + "Users" + File.separator + "Eddy" + File.separator +"SeleniumDownloads";
+        File dir = new File(dirPath);
+        File[] files = dir.listFiles();
+        if (files.length == 0 || files == null) {
+            System.out.println("The directory is empty");
+            flag = false;
+        } else {
+            for (File listFile : files) {
+                if (listFile.getName().contains(fileName)) {
+                    System.out.println(fileName + " is present");
+                    break;
+                }
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
 }
