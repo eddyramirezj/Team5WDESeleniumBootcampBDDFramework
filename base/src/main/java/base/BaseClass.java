@@ -151,6 +151,16 @@ public class BaseClass {
 
     }
 
+    public void dragAndDrop(WebElement element, int xOffset, int yOffset) {
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(element, xOffset, yOffset).build().perform();
+
+    }
+
+    public void selectDropMenuOptionsByIndex(WebElement webElement, int index) {
+        Select select = new Select(webElement);
+        select.selectByIndex(index);
+    }
 
     /*
     SYNC Methods
@@ -209,6 +219,8 @@ public class BaseClass {
 
         return flag;
     }
+
+
 
     public static Boolean isFileDownloaded(String fileName) {
         boolean flag = false;

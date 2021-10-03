@@ -3,6 +3,7 @@ package step_definitions;
 import base.BaseClass;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
 import org.openqa.selenium.support.PageFactory;
 
 public class SharedStepsUI extends BaseClass {
@@ -33,6 +34,8 @@ public class SharedStepsUI extends BaseClass {
     }
 
     // SHARED METHODS GO HERE
-
+    @Given("user is at homepage")
+    public void userIsAtHomepage() {
+    }
 }
 
