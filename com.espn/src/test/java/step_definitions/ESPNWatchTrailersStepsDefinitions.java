@@ -12,14 +12,14 @@ import pom.HomeWatch;
 import pom.Homepage;
 
 
-public class ESPNStepsDefinitions extends BaseClass {
+public class ESPNWatchTrailersStepsDefinitions extends BaseClass {
 
     SharedStepsUI sharedStepsUI;
     Homepage homepage;
     HomeWatch homeWatch;
 
 
-    public ESPNStepsDefinitions() {
+    public ESPNWatchTrailersStepsDefinitions() {
         sharedStepsUI = new SharedStepsUI();
         homepage = new Homepage();
         homeWatch = new HomeWatch();
@@ -27,9 +27,6 @@ public class ESPNStepsDefinitions extends BaseClass {
 
     // STEPS DEFINITIONS GO IN HERE (i.e. A METHOD FOR EACH STEP OF THE SCENARIO)
 
-    @Given("user is at homepage")
-    public void userIsAtHomepage() {
-    }
 
     @When("user navigates to the watch page")
     public void userNavigatesToTheWatchPage() {
@@ -41,9 +38,9 @@ public class ESPNStepsDefinitions extends BaseClass {
         homeWatch.navigateToTrailers();
     }
 
-    @And("user selects a trailer slot")
-    public void userSelectsATrailerSlot() {
-        homeWatch.selectATrailerFromSlot(1);
+    @And("user selects {int} trailer slot")
+    public void userSelectsATrailerSlot(int slot) {
+        homeWatch.selectATrailerFromSlot(slot);
 
     }
 

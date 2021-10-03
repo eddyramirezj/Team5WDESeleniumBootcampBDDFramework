@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,9 +23,7 @@ import reporting.ExtentTestManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.lang.reflect.Method;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
+import java.util.*;
 
 public class BaseClass {
 
@@ -49,6 +48,7 @@ public class BaseClass {
         driver.manage().window().maximize();
     }
 
+
     public WebDriver getLocalDriver(String browserName) {
 
         if (browserName.equalsIgnoreCase("Chrome")) {
@@ -66,10 +66,20 @@ public class BaseClass {
 
         } else if (browserName.equalsIgnoreCase("chrome-options")) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-notifications");
+
+            Map<String, Object> prefs = new HashMap<String, Object>();
+
+            prefs.put("download.prompt_for_download", false);
+            prefs.put("profile.default_content_settings.popups", 0);
+            prefs.put("download.default_directory", "C:" + File.separator + "Users" + File.separator + "Eddy" + File.separator +"SeleniumDownloads");
+            prefs.put("plugins.always_open_pdf_externally", true);
+
+            options.setExperimentalOption("prefs", prefs);
+
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
         }
+
         return driver;
     }
 
@@ -140,6 +150,7 @@ public class BaseClass {
         action.moveToElement(element).build().perform();
 
     }
+
 
     /*
     SYNC Methods
