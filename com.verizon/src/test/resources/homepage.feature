@@ -30,5 +30,5 @@ Feature: As a user, I should be able to click on all homepage links
     Examples:
       | rating     |
       | four       |
-#      | seven        |
-#      | ten       |
+      | seven      |
+      | ten        |

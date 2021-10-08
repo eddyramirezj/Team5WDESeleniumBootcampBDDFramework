@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/example.feature"},
+        features = {"src/test/resources/filterResults.feature"},
         glue = {"step_definitions"},
 //    tags = "@Deals",
         monochrome = true,
